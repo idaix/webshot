@@ -19,6 +19,7 @@ import { LoaderPinwheel, Settings } from "lucide-react";
 import { Shot } from "@/actions/take-screenshot";
 import { useScreenshotStore } from "@/hooks/screenshot.store";
 import { useConfigurationModal } from "@/hooks/use-configuration-modal";
+import { UseConfigurationStore } from "@/hooks/use-coniguration-store";
 
 type Props = {};
 export const WebshotFormSchema = z.object({
@@ -30,6 +31,9 @@ const WEBShotForm = (props: Props) => {
   const [error, setError] = useState<string | null>(null);
   const setScreenBlob = useScreenshotStore((state) => state.setScreenBlob);
   const openConfigurationModal = useConfigurationModal((state) => state.onOpen);
+  const userConfiguration = UseConfigurationStore(
+    (state) => state.configuration
+  );
 
   const form = useForm<z.infer<typeof WebshotFormSchema>>({
     resolver: zodResolver(WebshotFormSchema),
@@ -41,7 +45,7 @@ const WEBShotForm = (props: Props) => {
   async function onSubmit(values: z.infer<typeof WebshotFormSchema>) {
     const url = ensureHttps(values.url);
     startTransition(async () => {
-      const blob = await Shot(url);
+      const blob = await Shot(url, userConfiguration);
       if (!blob) {
         setError("Failed to take screenshot. Please try again.");
         return;
