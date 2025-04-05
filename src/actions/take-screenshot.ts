@@ -43,9 +43,8 @@ export async function Shot(
   console.log("viewportConfig", viewportConfig);
 
   await page.setViewport(viewportConfig);
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
   await page.waitForSelector("body");
-  await delay(6000);
 
   const screenshotBuffer = await page.screenshot({
     fullPage: userConfiguration?.fullPage ?? false,

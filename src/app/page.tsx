@@ -1,7 +1,7 @@
 import Container from "@/components/layout/container";
 import Page from "@/components/layout/page";
 import Result from "@/components/result";
-import WEBShotForm from "@/components/webshot-form";
+import WEBShotForm from "@/components/webshot-form.v2";
 
 const Home = () => {
   return (
