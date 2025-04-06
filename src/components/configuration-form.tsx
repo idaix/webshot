@@ -31,7 +31,7 @@ const ConfigurationForm = () => {
   });
 
   const handleAspectRatioSelect = (value: string) => {
-    form.setValue("viewport", value as any);
+    form.setValue("viewport", value);
     setConfiguration({
       ...configuration,
       viewport: value as keyof typeof VIEWPORTS.aspectRatios,

@@ -1,16 +1,13 @@
 "use client";
 
 import { useScreenshotStore } from "@/hooks/screenshot.store";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, PenIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { base64ToBlobUrl } from "@/lib/utils";
 
 const Result = () => {
   const screenshotBlob = useScreenshotStore((state) => state.screenBlob);
-  const router = useRouter();
 
   if (!screenshotBlob) {
     return null;

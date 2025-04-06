@@ -15,18 +15,17 @@ import { Input } from "@/components/ui/input";
 import { ensureHttps } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { LoaderPinwheel, Settings, Squircle } from "lucide-react";
+import { LoaderPinwheel, Settings } from "lucide-react";
 import { useScreenshotStore } from "@/hooks/screenshot.store";
 import { useConfigurationModal } from "@/hooks/use-configuration-modal";
 import { UseConfigurationStore } from "@/hooks/use-coniguration-store";
-import { motion } from "motion/react";
 import { TextAnimate } from "./ui/text-animation";
-type Props = {};
+
 export const WebshotFormSchema = z.object({
   url: z.string().min(1, { message: "dont forget to add a url" }),
 });
 
-const WEBShotForm = (props: Props) => {
+const WEBShotForm = () => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const setScreenBlob = useScreenshotStore((state) => state.setScreenBlob);

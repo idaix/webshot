@@ -9,5 +9,5 @@ interface ConfigurationState {
 export const UseConfigurationStore = create<ConfigurationState>()((set) => ({
   configuration: null,
   setConfiguration: (configuration) =>
-    set((state) => ({ configuration: configuration })),
+    set(() => ({ configuration: configuration })),
 }));

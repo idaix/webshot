@@ -55,8 +55,14 @@ export async function GET(request: NextRequest) {
         sendStatus(`DONE: data:image/png;base64,${base64Image}`);
 
         controller.close();
-      } catch (error: any) {
-        sendStatus(`Error: ${error.message}`);
+      } catch (error: unknown) {
+        let message = "An unknown error occurred";
+
+        if (error instanceof Error) {
+          message = error.message;
+        }
+
+        sendStatus(`Error: ${message}`);
         controller.close();
       }
     },

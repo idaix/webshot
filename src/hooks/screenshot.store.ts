@@ -7,5 +7,5 @@ interface ScreenshotState {
 
 export const useScreenshotStore = create<ScreenshotState>()((set) => ({
   screenBlob: null,
-  setScreenBlob: (blob) => set((state) => ({ screenBlob: blob })),
+  setScreenBlob: (blob) => set(() => ({ screenBlob: blob })),
 }));

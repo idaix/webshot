@@ -21,12 +21,11 @@ import { useScreenshotStore } from "@/hooks/screenshot.store";
 import { useConfigurationModal } from "@/hooks/use-configuration-modal";
 import { UseConfigurationStore } from "@/hooks/use-coniguration-store";
 
-type Props = {};
 export const WebshotFormSchema = z.object({
   url: z.string().min(1, { message: "dont forget to add a url" }),
 });
 
-const WEBShotForm = (props: Props) => {
+const WEBShotForm = () => {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const setScreenBlob = useScreenshotStore((state) => state.setScreenBlob);

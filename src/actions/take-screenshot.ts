@@ -5,9 +5,6 @@ import { VIEWPORTS } from "@/lib/viewports";
 import puppeteer from "puppeteer";
 import { z } from "zod";
 
-const delay = (ms: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, ms));
-
 const DEFAULT_VIEWPORT = { width: 1920, height: 1080, deviceScaleFactor: 2 };
 
 export async function Shot(
