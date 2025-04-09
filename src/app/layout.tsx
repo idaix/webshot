@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WEBShot ̸/̸̅̅ ̆̅ ̅̅ ̅̅ ",
+  title: "WEBShot",
 };
 
 export default function RootLayout({
